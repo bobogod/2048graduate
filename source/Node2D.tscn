@@ -1,0 +1,210 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://vt.tres" type="TileSet" id=1]
+[ext_resource path="res://1.png" type="Texture" id=2]
+[ext_resource path="res://TileMap.gd" type="Script" id=3]
+[ext_resource path="res://4.png" type="Texture" id=6]
+[ext_resource path="res://HYWaiWaiTiJ.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://t5.png" type="Texture" id=15]
+[ext_resource path="res://t3.png" type="Texture" id=16]
+[ext_resource path="res://t6.png" type="Texture" id=17]
+[ext_resource path="res://t4.png" type="Texture" id=18]
+[ext_resource path="res://t2.png" type="Texture" id=19]
+[ext_resource path="res://t1.png" type="Texture" id=20]
+[ext_resource path="res://tf.png" type="Texture" id=21]
+[ext_resource path="res://help.gd" type="Script" id=22]
+[ext_resource path="res://help.png" type="Texture" id=23]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 7 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 16 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="Animation" id=3]
+resource_name = "newsprite"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "disappear"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 7 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 54.8185, 54.8185 )
+scale = Vector2( 0.6, 0.6 )
+tile_set = ExtResource( 1 )
+cell_tile_origin = 1
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 3, 0, 0, 6, 0, 0, 9, 0, 0, 196608, 0, 0, 196611, 0, 0, 196614, 0, 0, 196617, 0, 0, 393216, 0, 0, 393219, 0, 0, 393222, 0, 0, 393225, 0, 0, 589824, 0, 0, 589827, 0, 0, 589830, 0, 0, 589833, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="TileMap"]
+margin_left = 47.4598
+margin_top = -80.9197
+margin_right = 726.46
+margin_bottom = 4.08034
+custom_fonts/font = SubResource( 1 )
+text = "Can you guaduate in 4 years?"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spriteheart" type="AnimatedSprite" parent="TileMap"]
+position = Vector2( -380.294, 305.121 )
+scale = Vector2( 1e-05, 1e-05 )
+frames = SubResource( 2 )
+frame = 6
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Spriteheart"]
+anims/newsprite = SubResource( 3 )
+
+[node name="Spritenew" type="Sprite" parent="TileMap"]
+position = Vector2( -308.671, 64.0656 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Spritenew"]
+anims/newsprite = SubResource( 4 )
+
+[node name="Spritebreak" type="Sprite" parent="TileMap"]
+position = Vector2( -308.671, 64.0656 )
+texture = ExtResource( 21 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMap/Spritebreak"]
+anims/disappear = SubResource( 5 )
+anims/newsprite = SubResource( 6 )
+
+[node name="Spritenew1" type="Sprite" parent="TileMap"]
+visible = false
+position = Vector2( -308.671, 64.0656 )
+texture = ExtResource( 2 )
+
+[node name="Spritenew3" type="Sprite" parent="TileMap"]
+visible = false
+position = Vector2( -308.671, 64.0656 )
+texture = ExtResource( 6 )
+
+[node name="retry" type="Button" parent="."]
+margin_left = 175.759
+margin_top = 527.568
+margin_right = 242.759
+margin_bottom = 568.568
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 7 )
+keep_pressed_outside = true
+text = "retry"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="help" type="Button" parent="."]
+margin_left = 332.798
+margin_top = 528.432
+margin_right = 399.798
+margin_bottom = 569.432
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 7 )
+keep_pressed_outside = true
+text = "help"
+flat = true
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="help"]
+visible = false
+margin_left = -367.0
+margin_top = -415.0
+margin_right = 263.0
+margin_bottom = -72.0
+color = Color( 0, 0, 0, 0.823529 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GraphEdit" type="TextureRect" parent="help/ColorRect"]
+margin_left = 15.0
+margin_top = 65.0
+margin_right = 629.0
+margin_bottom = 287.0
+texture = ExtResource( 23 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="retry" to="TileMap" method="_on_retry_pressed"]
+[connection signal="pressed" from="help" to="help" method="_on_help_pressed"]
